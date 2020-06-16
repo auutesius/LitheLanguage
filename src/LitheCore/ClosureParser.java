@@ -1,6 +1,6 @@
-package LitheXCore;
-import static LitheXCore.Parser.rule;
-import LitheXCore.ast.Fun;
+package LitheCore;
+import static LitheCore.Parser.rule;
+import LitheCore.ast.Fun;
 
 public class ClosureParser extends FuncParser {
     public ClosureParser() {

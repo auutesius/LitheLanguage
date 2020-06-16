@@ -1,5 +1,5 @@
 package LVM;
-import LitheXCore.LitheXException;
+import LitheCore.LitheException;
 
 public class Opcode {
     public static final byte ICONST = 1;    // load an integer
@@ -24,21 +24,21 @@ public class Opcode {
     public static final byte LESS = 20;     // less than
 
     public static byte encodeRegister(int reg) {
-        if (reg > LitheXVM.NUM_OF_REG)
-            throw new LitheXException("too many registers required");
+        if (reg > LitheVM.NUM_OF_REG)
+            throw new LitheException("too many registers required");
         else
             return (byte)-(reg + 1);
     } 
     public static int decodeRegister(byte operand) { return -1 - operand; }
     public static byte encodeOffset(int offset) {
         if (offset > Byte.MAX_VALUE)
-            throw new LitheXException("too big byte offset");
+            throw new LitheException("too big byte offset");
         else
             return (byte)offset;
     }
     public static short encodeShortOffset(int offset) {
         if (offset < Short.MIN_VALUE || Short.MAX_VALUE < offset)
-            throw new LitheXException("too big short offset");
+            throw new LitheException("too big short offset");
         else
             return (short)offset;
     }

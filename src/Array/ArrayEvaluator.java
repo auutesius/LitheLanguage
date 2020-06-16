@@ -1,9 +1,9 @@
 package Array;
 import java.util.List;
 import javassist.gluonj.*;
-import LitheXCore.ArrayParser;
-import LitheXCore.LitheXException;
-import LitheXCore.ast.*;
+import LitheCore.ArrayParser;
+import LitheCore.LitheException;
+import LitheCore.ast.*;
 import BasicRunner.Environment;
 import BasicRunner.BasicEvaluator;
 import BasicRunner.BasicEvaluator.ASTreeEx;
@@ -32,7 +32,7 @@ import Closure.FuncEvaluator.PrimaryEx;
                     return ((Object[])value)[(Integer)index];
             }
 
-            throw new LitheXException("bad array access", this);
+            throw new LitheException("bad array access", this);
         }
     }
     @Reviser public static class AssignEx extends BasicEvaluator.BinaryEx {
@@ -52,7 +52,7 @@ import Closure.FuncEvaluator.PrimaryEx;
                             return rvalue;
                         }
                     }
-                    throw new LitheXException("bad array access", this);
+                    throw new LitheException("bad array access", this);
                 }
             }
             return super.computeAssign(env, rvalue);

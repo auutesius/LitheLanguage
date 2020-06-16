@@ -1,8 +1,8 @@
 package Closure;
 import java.util.List;
 import javassist.gluonj.*;
-import LitheXCore.ast.ASTree;
-import LitheXCore.ast.Fun;
+import LitheCore.ast.ASTree;
+import LitheCore.ast.Fun;
 import BasicRunner.Environment;
 
 @Require(FuncEvaluator.class)

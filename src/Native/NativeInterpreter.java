@@ -1,6 +1,6 @@
 package Native;
-import LitheXCore.ClosureParser;
-import LitheXCore.ParseException;
+import LitheCore.ClosureParser;
+import LitheCore.ParseException;
 import BasicRunner.BasicInterpreter;
 import Closure.NestedEnv;
 

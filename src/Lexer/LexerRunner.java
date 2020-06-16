@@ -1,5 +1,5 @@
 package Lexer;
-import LitheXCore.*;
+import LitheCore.*;
 
 public class LexerRunner {
     public static void main(String[] args) throws ParseException {

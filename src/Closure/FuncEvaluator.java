@@ -1,8 +1,8 @@
 package Closure;
 import java.util.List;
 import javassist.gluonj.*;
-import LitheXCore.LitheXException;
-import LitheXCore.ast.*;
+import LitheCore.LitheException;
+import LitheCore.ast.*;
 import BasicRunner.BasicEvaluator;
 import BasicRunner.Environment;
 import BasicRunner.BasicEvaluator.ASTreeEx;
@@ -49,11 +49,11 @@ import BasicRunner.BasicEvaluator.BlockEx;
         public ArgumentsEx(List<ASTree> c) { super(c); }
         public Object eval(Environment callerEnv, Object value) {
             if (!(value instanceof Function))
-                throw new LitheXException("bad function", this);
+                throw new LitheException("bad function", this);
             Function func = (Function)value;
             ParameterList params = func.parameters();
             if (size() != params.size())
-                throw new LitheXException("bad number of arguments", this);
+                throw new LitheException("bad number of arguments", this);
             Environment newEnv = func.makeEnv();
             int num = 0;
             for (ASTree a: this)

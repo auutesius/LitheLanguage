@@ -3,8 +3,8 @@ import java.util.ArrayList;
 import java.util.List;
 import static javassist.gluonj.GluonJ.revise;
 import javassist.gluonj.*;
-import LitheXCore.*;
-import LitheXCore.ast.*;
+import LitheCore.*;
+import LitheCore.ast.*;
 import BasicRunner.Environment;
 import BasicRunner.BasicEvaluator;
 import BasicRunner.BasicEvaluator.ASTreeEx;
@@ -15,7 +15,7 @@ import Array.Symbols;
 import Array.EnvOptimizer.ASTreeOptEx;
 import Array.EnvOptimizer.EnvEx2;
 import Array.EnvOptimizer.ParamsEx;
-import Optimization.OptLitheXObject.AccessException;
+import Optimization.OptLitheObject.AccessException;
 
 @Require(EnvOptimizer.class)
 @Reviser public class ObjOptimizer {
@@ -86,20 +86,20 @@ import Optimization.OptLitheXObject.AccessException;
                 if ("new".equals(member)) {
                     OptClassInfo ci = (OptClassInfo)value;
                     ArrayEnv newEnv = new ArrayEnv(1, ci.environment());
-                    OptLitheXObject so = new OptLitheXObject(ci, ci.size());
+                    OptLitheObject so = new OptLitheObject(ci, ci.size());
                     newEnv.put(0, 0, so);
                     initObject(ci, so, newEnv);
                     return so;
                 }
             }
-            else if (value instanceof OptLitheXObject) {
+            else if (value instanceof OptLitheObject) {
                 try {
-                    return ((OptLitheXObject)value).read(member);
+                    return ((OptLitheObject)value).read(member);
                 } catch (AccessException e) {}
             }
-            throw new LitheXException("bad member access: " + member, this);
+            throw new LitheException("bad member access: " + member, this);
         }
-        protected void initObject(OptClassInfo ci, OptLitheXObject obj,
+        protected void initObject(OptClassInfo ci, OptLitheObject obj,
                                   Environment env)
         {
             if (ci.superClass() != null)
@@ -125,13 +125,13 @@ import Optimization.OptLitheXObject.AccessException;
             else if (nest == MemberSymbols.FIELD)
                 getThis(env).write(index, value);
             else if (nest == MemberSymbols.METHOD)
-                throw new LitheXException("cannot update a method: " + name(),
+                throw new LitheException("cannot update a method: " + name(),
                                          this);
             else
                 ((EnvEx2)env).put(nest, index, value);
         }
-        protected OptLitheXObject getThis(Environment env) {
-            return (OptLitheXObject)((EnvEx2)env).get(0, 0);
+        protected OptLitheObject getThis(Environment env) {
+            return (OptLitheObject)((EnvEx2)env).get(0, 0);
         }
     }
     @Reviser public static class AssignEx extends BasicEvaluator.BinaryEx {
@@ -143,20 +143,20 @@ import Optimization.OptLitheXObject.AccessException;
                 PrimaryEx p = (PrimaryEx)le;
                 if (p.hasPostfix(0) && p.postfix(0) instanceof Dot) {
                     Object t = ((PrimaryEx)le).evalSubExpr(env, 1);
-                    if (t instanceof OptLitheXObject)
-                        return setField((OptLitheXObject)t, (Dot)p.postfix(0),
+                    if (t instanceof OptLitheObject)
+                        return setField((OptLitheObject)t, (Dot)p.postfix(0),
                                         rvalue);
                 }
             }
             return super.computeAssign(env, rvalue);
         }
-        protected Object setField(OptLitheXObject obj, Dot expr, Object rvalue) {
+        protected Object setField(OptLitheObject obj, Dot expr, Object rvalue) {
             String name = expr.name();
             try {
                 obj.write(name, rvalue);
                 return rvalue;
             } catch (AccessException e) {
-                throw new LitheXException("bad member access: " + name, this);
+                throw new LitheException("bad member access: " + name, this);
             }
         }
     }

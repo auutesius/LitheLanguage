@@ -1,8 +1,8 @@
 package BasicRunner;
 import javassist.gluonj.*;
-import LitheXCore.Token;
-import LitheXCore.LitheXException;
-import LitheXCore.ast.*;
+import LitheCore.Token;
+import LitheCore.LitheException;
+import LitheCore.ast.*;
 import java.util.List;
 
 @Reviser public class BasicEvaluator {
@@ -14,13 +14,13 @@ import java.util.List;
     @Reviser public static class ASTListEx extends ASTList {
         public ASTListEx(List<ASTree> c) { super(c); }
         public Object eval(Environment env) {
-            throw new LitheXException("cannot eval: " + toString(), this);
+            throw new LitheException("cannot eval: " + toString(), this);
         }
     }
     @Reviser public static class ASTLeafEx extends ASTLeaf {
         public ASTLeafEx(Token t) { super(t); }
         public Object eval(Environment env) {
-            throw new LitheXException("cannot eval: " + toString(), this);
+            throw new LitheException("cannot eval: " + toString(), this);
         }
     }
     @Reviser public static class NumberEx extends NumberLiteral {
@@ -36,7 +36,7 @@ import java.util.List;
         public Object eval(Environment env) {
             Object value = env.get(name());
             if (value == null)
-                throw new LitheXException("undefined name: " + name(), this);
+                throw new LitheException("undefined name: " + name(), this);
             else
                 return value;
         }
@@ -48,7 +48,7 @@ import java.util.List;
             if (v instanceof Integer)
                 return new Integer(-((Integer)v).intValue());
             else
-                throw new LitheXException("bad type for -", this);
+                throw new LitheException("bad type for -", this);
         }
     }
     @Reviser public static class BinaryEx extends BinaryExpr {
@@ -72,7 +72,7 @@ import java.util.List;
                 return rvalue;
             }
             else
-                throw new LitheXException("bad assignment", this);
+                throw new LitheException("bad assignment", this);
         }
         protected Object computeOp(Object left, String op, Object right) {
             if (left instanceof Integer && right instanceof Integer) {
@@ -88,7 +88,7 @@ import java.util.List;
                         return left.equals(right) ? TRUE : FALSE;
                 }
                 else
-                    throw new LitheXException("bad type", this);
+                    throw new LitheException("bad type", this);
         }
         protected Object computeNumber(Integer left, String op, Integer right) {
             int a = left.intValue(); 
@@ -110,7 +110,7 @@ import java.util.List;
             else if (op.equals("<"))
                 return a < b ? TRUE : FALSE;
             else
-                throw new LitheXException("bad operator", this);
+                throw new LitheException("bad operator", this);
         }
     }
     @Reviser public static class BlockEx extends BlockStmnt {

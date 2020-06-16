@@ -5,9 +5,9 @@ import Array.ArrayEnv;
 import Array.EnvOptimizer;
 import BasicRunner.Environment;
 import Closure.FuncEvaluator;
-import LitheXCore.LitheXException;
-import LitheXCore.Token;
-import LitheXCore.ast.*;
+import LitheCore.LitheException;
+import LitheCore.Token;
+import LitheCore.ast.*;
 import javassist.gluonj.Require;
 import javassist.gluonj.Reviser;
 import static javassist.gluonj.GluonJ.revise;
@@ -135,7 +135,7 @@ import static javassist.gluonj.GluonJ.revise;
                         return "chap14.Runtime.plus(" + e1 + "," + e2 + ")";
                 }
                 else
-                    throw new LitheXException("bad operator", this);
+                    throw new LitheException("bad operator", this);
             }
             else {
                 String expr = ((ASTreeEx)left()).translate(null) + op
@@ -175,7 +175,7 @@ import static javassist.gluonj.GluonJ.revise;
                 else if (isExprStmnt(tree))
                     code.append(((ASTreeEx)tree).translate(null)).append(";\n");
                 else
-                    throw new LitheXException("bad expression statement", this);
+                    throw new LitheException("bad expression statement", this);
         }
         protected static boolean isExprStmnt(ASTree tree) {
             if (tree instanceof BinaryExpr)
@@ -287,7 +287,7 @@ import static javassist.gluonj.GluonJ.revise;
         }
         public Object eval(Environment env, Object value) {
             if (!(value instanceof JavaFunction))
-                throw new LitheXException("bad function", this);
+                throw new LitheException("bad function", this);
             JavaFunction func = (JavaFunction)value;
             Object[] args = new Object[numChildren() + 1];
             args[0] = env;

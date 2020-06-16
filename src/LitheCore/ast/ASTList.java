@@ -1,4 +1,4 @@
-package LitheXCore.ast;
+package LitheCore.ast;
 import java.util.List;
 import java.util.Iterator;
 

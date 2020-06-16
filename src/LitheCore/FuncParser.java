@@ -1,8 +1,8 @@
-package LitheXCore;
-import static LitheXCore.Parser.rule;
-import LitheXCore.ast.ParameterList;
-import LitheXCore.ast.Arguments;
-import LitheXCore.ast.DefStmnt;
+package LitheCore;
+import static LitheCore.Parser.rule;
+import LitheCore.ast.ParameterList;
+import LitheCore.ast.Arguments;
+import LitheCore.ast.DefStmnt;
 
 public class FuncParser extends BasicParser {
     Parser param = rule().identifier(reserved);

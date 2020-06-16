@@ -1,11 +1,11 @@
 package Optimization;
 import java.util.ArrayList;
-import LitheXCore.ast.ClassStmnt;
-import LitheXCore.ast.DefStmnt;
+import LitheCore.ast.ClassStmnt;
+import LitheCore.ast.DefStmnt;
 import Array.Symbols;
 import Optimization.ObjOptimizer.DefStmntEx2;
 import BasicRunner.Environment;
-import LitheXClass.ClassInfo;
+import LitheClass.ClassInfo;
 
 public class OptClassInfo extends ClassInfo {
     protected Symbols methods, fields;
@@ -30,7 +30,7 @@ public class OptClassInfo extends ClassInfo {
     }
     public Integer fieldIndex(String name) { return fields.find(name); }
     public Integer methodIndex(String name) { return methods.find(name); }
-    public Object method(OptLitheXObject self, int index) {
+    public Object method(OptLitheObject self, int index) {
         DefStmnt def = methodDefs[index];
         return new OptMethod(def.parameters(), def.body(), environment(),
                              ((DefStmntEx2)def).locals(), self);

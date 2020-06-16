@@ -2,14 +2,14 @@ package Array;
 import BasicRunner.BasicEvaluator;
 import BasicRunner.Environment;
 import Native.Natives;
-import LitheXCore.BasicParser;
-import LitheXCore.ClosureParser;
-import LitheXCore.CodeDialog;
-import LitheXCore.Lexer;
-import LitheXCore.ParseException;
-import LitheXCore.Token;
-import LitheXCore.ast.ASTree;
-import LitheXCore.ast.NullStmnt;
+import LitheCore.BasicParser;
+import LitheCore.ClosureParser;
+import LitheCore.CodeDialog;
+import LitheCore.Lexer;
+import LitheCore.ParseException;
+import LitheCore.Token;
+import LitheCore.ast.ASTree;
+import LitheCore.ast.NullStmnt;
 
 public class EnvOptInterpreter {
     public static void main(String[] args) throws ParseException {

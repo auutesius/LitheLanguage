@@ -1,4 +1,4 @@
-package LitheXCore;
+package LitheCore;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -6,9 +6,9 @@ import java.util.List;
 import java.util.ArrayList;
 import java.lang.reflect.Method;
 import java.lang.reflect.Constructor;
-import LitheXCore.ast.ASTree;
-import LitheXCore.ast.ASTLeaf;
-import LitheXCore.ast.ASTList;
+import LitheCore.ast.ASTree;
+import LitheCore.ast.ASTLeaf;
+import LitheCore.ast.ASTList;
 
 public class Parser {
     protected static abstract class Element {

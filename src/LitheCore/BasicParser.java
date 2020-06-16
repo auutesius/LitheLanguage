@@ -1,8 +1,8 @@
-package LitheXCore;
-import static LitheXCore.Parser.rule;
+package LitheCore;
+import static LitheCore.Parser.rule;
 import java.util.HashSet;
-import LitheXCore.Parser.Operators;
-import LitheXCore.ast.*;
+import LitheCore.Parser.Operators;
+import LitheCore.ast.*;
 
 public class BasicParser {
     HashSet<String> reserved = new HashSet<String>();

@@ -2,9 +2,9 @@ package StaticType;
 import java.util.List;
 import Closure.FuncEvaluator;
 import Array.EnvOptimizer;
-import LitheXCore.Token;
+import LitheCore.Token;
 import static javassist.gluonj.GluonJ.revise;
-import LitheXCore.ast.*;
+import LitheCore.ast.*;
 import javassist.gluonj.*;
 
 @Require(TypedEvaluator.class)

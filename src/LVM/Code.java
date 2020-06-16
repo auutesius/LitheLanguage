@@ -1,14 +1,14 @@
 package LVM;
 
 public class Code {
-    protected LitheXVM lvm;
+    protected LitheVM lvm;
     protected int codeSize;
     protected int numOfStrings;
     protected int nextReg;
     protected int frameSize;
 
-    public Code(LitheXVM LitheXVm) {
-        lvm = LitheXVm;
+    public Code(LitheVM LitheVm) {
+        lvm = LitheVm;
         codeSize = 0;
         numOfStrings = 0;
     }

@@ -1,7 +1,7 @@
-package LitheXCore.ast;
+package LitheCore.ast;
 import java.util.Iterator;
 import java.util.ArrayList;
-import LitheXCore.Token;
+import LitheCore.Token;
 
 public class ASTLeaf extends ASTree {
     private static ArrayList<ASTree> empty = new ArrayList<ASTree>(); 

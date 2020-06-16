@@ -2,7 +2,7 @@ package StaticType;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import LitheXCore.ast.ASTree;
+import LitheCore.ast.ASTree;
 import javassist.gluonj.Reviser;
 import StaticType.TypeInfo.UnknownType;
 

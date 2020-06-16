@@ -1,6 +1,6 @@
 package Optimization;
-import LitheXCore.ClassParser;
-import LitheXCore.ParseException;
+import LitheCore.ClassParser;
+import LitheCore.ParseException;
 import Array.EnvOptInterpreter;
 import Array.ResizableArrayEnv;
 import Native.Natives;

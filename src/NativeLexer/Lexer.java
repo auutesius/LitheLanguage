@@ -1,7 +1,7 @@
 package NativeLexer;
 import java.io.IOException;
 import java.io.Reader;
-import LitheXCore.CodeDialog;
+import LitheCore.CodeDialog;
 
 public class Lexer {
     private Reader reader;

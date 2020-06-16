@@ -1,5 +1,5 @@
 package StaticType;
-import LitheXCore.LitheXException;
+import LitheCore.LitheException;
 import Closure.Function;
 
 public class JavaFunction extends Function {
@@ -17,7 +17,7 @@ public class JavaFunction extends Function {
         try {
             return clazz.getDeclaredMethods()[0].invoke(null, args);
         } catch (Exception e) {
-            throw new LitheXException(e.getMessage());
+            throw new LitheException(e.getMessage());
         }
     }
 }

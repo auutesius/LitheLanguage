@@ -1,4 +1,4 @@
-package LitheXCore;
+package LitheCore;
 
 public class Interruper {
 }

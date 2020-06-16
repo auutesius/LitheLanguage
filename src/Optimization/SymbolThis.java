@@ -1,5 +1,5 @@
 package Optimization;
-import LitheXCore.LitheXException;
+import LitheCore.LitheException;
 import Array.Symbols;
 
 public class SymbolThis extends Symbols {
@@ -9,7 +9,7 @@ public class SymbolThis extends Symbols {
         add(NAME);
     }
     @Override public int putNew(String key) {
-        throw new LitheXException("fatal");
+        throw new LitheException("fatal");
     }
     @Override public Location put(String key) {
         Location loc = outer.put(key); 

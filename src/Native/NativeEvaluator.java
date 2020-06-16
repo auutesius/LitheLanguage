@@ -1,7 +1,7 @@
 package Native;
 import java.util.List;
-import LitheXCore.LitheXException;
-import LitheXCore.ast.ASTree;
+import LitheCore.LitheException;
+import LitheCore.ast.ASTree;
 import javassist.gluonj.*;
 import BasicRunner.Environment;
 import BasicRunner.BasicEvaluator.ASTreeEx;
@@ -18,7 +18,7 @@ import Closure.FuncEvaluator;
             NativeFunction func = (NativeFunction)value;
             int nparams = func.numOfParameters();
             if (size() != nparams)
-                throw new LitheXException("bad number of arguments", this);
+                throw new LitheException("bad number of arguments", this);
             Object[] args = new Object[nparams];
             int num = 0;
             for (ASTree a: this) {

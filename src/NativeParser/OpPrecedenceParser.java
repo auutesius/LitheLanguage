@@ -1,8 +1,8 @@
 package NativeParser;
 import java.util.Arrays;
 import java.util.HashMap;
-import LitheXCore.*;
-import LitheXCore.ast.*;
+import LitheCore.*;
+import LitheCore.ast.*;
 
 public class OpPrecedenceParser {
     private Lexer lexer;

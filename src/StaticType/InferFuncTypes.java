@@ -3,7 +3,7 @@ import java.util.List;
 import StaticType.TypeInfo.FunctionType;
 import StaticType.TypeInfo.UnknownType;
 import StaticType.InferTypes.UnknownTypeEx;
-import LitheXCore.ast.ASTree;
+import LitheCore.ast.ASTree;
 import javassist.gluonj.Require;
 import javassist.gluonj.Reviser;
 

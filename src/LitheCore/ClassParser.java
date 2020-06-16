@@ -1,8 +1,8 @@
-package LitheXCore;
-import static LitheXCore.Parser.rule;
-import LitheXCore.ast.ClassBody;
-import LitheXCore.ast.ClassStmnt;
-import LitheXCore.ast.Dot;
+package LitheCore;
+import static LitheCore.Parser.rule;
+import LitheCore.ast.ClassBody;
+import LitheCore.ast.ClassStmnt;
+import LitheCore.ast.Dot;
 
 public class ClassParser extends ClosureParser {
     Parser member = rule().or(def, simple);

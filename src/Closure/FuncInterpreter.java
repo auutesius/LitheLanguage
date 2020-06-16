@@ -1,6 +1,6 @@
 package Closure;
-import LitheXCore.FuncParser;
-import LitheXCore.ParseException;
+import LitheCore.FuncParser;
+import LitheCore.ParseException;
 import BasicRunner.BasicInterpreter;
 
 public class FuncInterpreter extends BasicInterpreter {

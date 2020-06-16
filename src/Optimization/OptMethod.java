@@ -1,14 +1,14 @@
 package Optimization;
-import LitheXCore.ast.BlockStmnt;
-import LitheXCore.ast.ParameterList;
+import LitheCore.ast.BlockStmnt;
+import LitheCore.ast.ParameterList;
 import Array.ArrayEnv;
 import Array.OptFunction;
 import BasicRunner.Environment;
 
 public class OptMethod extends OptFunction {
-    OptLitheXObject self;
+    OptLitheObject self;
     public OptMethod(ParameterList parameters, BlockStmnt body,
-                     Environment env, int memorySize, OptLitheXObject self)
+                     Environment env, int memorySize, OptLitheObject self)
     {
         super(parameters, body, env, memorySize);
         this.self = self;

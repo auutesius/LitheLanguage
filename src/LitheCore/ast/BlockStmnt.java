@@ -1,4 +1,4 @@
-package LitheXCore.ast;
+package LitheCore.ast;
 import java.util.List;
 
 public class BlockStmnt extends ASTList {

@@ -1,8 +1,8 @@
-package LitheXClass;
+package LitheClass;
 import java.util.List;
-import LitheXCore.LitheXException;
+import LitheCore.LitheException;
 import javassist.gluonj.*;
-import LitheXCore.ast.*;
+import LitheCore.ast.*;
 import BasicRunner.Environment;
 import BasicRunner.BasicEvaluator.ASTreeEx;
 import BasicRunner.BasicEvaluator;
@@ -10,7 +10,7 @@ import Closure.FuncEvaluator;
 import Closure.NestedEnv;
 import Closure.FuncEvaluator.EnvEx;
 import Closure.FuncEvaluator.PrimaryEx;
-import LitheXClass.LitheXObject.AccessException;
+import LitheClass.LitheObject.AccessException;
 
 @Require(FuncEvaluator.class)
 @Reviser public class ClassEvaluator {
@@ -38,18 +38,18 @@ import LitheXClass.LitheXObject.AccessException;
                 if ("new".equals(member)) {
                     ClassInfo ci = (ClassInfo)value;
                     NestedEnv e = new NestedEnv(ci.environment());
-                    LitheXObject so = new LitheXObject(e);
+                    LitheObject so = new LitheObject(e);
                     e.putNew("this", so);
                     initObject(ci, e);
                     return so;
                 }
             }
-            else if (value instanceof LitheXObject) {
+            else if (value instanceof LitheObject) {
                 try {
-                    return ((LitheXObject)value).read(member);
+                    return ((LitheObject)value).read(member);
                 } catch (AccessException e) {}
             }
-            throw new LitheXException("bad member access: " + member, this);
+            throw new LitheException("bad member access: " + member, this);
         }
         protected void initObject(ClassInfo ci, Environment env) {
             if (ci.superClass() != null)
@@ -66,20 +66,20 @@ import LitheXClass.LitheXObject.AccessException;
                 PrimaryEx p = (PrimaryEx)le;
                 if (p.hasPostfix(0) && p.postfix(0) instanceof Dot) {
                     Object t = ((PrimaryEx)le).evalSubExpr(env, 1);
-                    if (t instanceof LitheXObject)
-                        return setField((LitheXObject)t, (Dot)p.postfix(0),
+                    if (t instanceof LitheObject)
+                        return setField((LitheObject)t, (Dot)p.postfix(0),
                                         rvalue);
                 }
             }
             return super.computeAssign(env, rvalue);
         }
-        protected Object setField(LitheXObject obj, Dot expr, Object rvalue) {
+        protected Object setField(LitheObject obj, Dot expr, Object rvalue) {
             String name = expr.name();
             try {
                 obj.write(name, rvalue);
                 return rvalue;
             } catch (AccessException e) {
-                throw new LitheXException("bad member access " + location()
+                throw new LitheException("bad member access " + location()
                                          + ": " + name);
             }
         }

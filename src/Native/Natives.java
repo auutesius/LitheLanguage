@@ -1,7 +1,7 @@
 package Native;
 import java.lang.reflect.Method;
 import javax.swing.JOptionPane;
-import LitheXCore.LitheXException;
+import LitheCore.LitheException;
 import BasicRunner.Environment;
 
 public class Natives {
@@ -22,7 +22,7 @@ public class Natives {
         try {
             m = clazz.getMethod(methodName, params);
         } catch (Exception e) {
-            throw new LitheXException("cannot find a native function: "
+            throw new LitheException("cannot find a native function: "
                                      + methodName);
         }
         env.put(name, new NativeFunction(methodName, m));
