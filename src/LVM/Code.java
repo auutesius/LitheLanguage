@@ -7,8 +7,8 @@ public class Code {
     protected int nextReg;
     protected int frameSize;
 
-    public Code(LitheVM litheVm) {
-        svm = litheVm;
+    public Code(LitheVM LitheVm) {
+        svm = LitheVm;
         codeSize = 0;
         numOfStrings = 0;
     }
