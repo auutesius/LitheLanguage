@@ -1,4 +1,4 @@
-package LitheCore.ast;
+package LitheXCore.ast;
 import java.util.List;
 
 public class Dot extends Postfix {

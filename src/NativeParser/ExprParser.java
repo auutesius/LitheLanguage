@@ -1,7 +1,7 @@
 package NativeParser;
 import java.util.Arrays;
-import LitheCore.*;
-import LitheCore.ast.*;
+import LitheXCore.*;
+import LitheXCore.ast.*;
 
 public class ExprParser {
     private Lexer lexer;

@@ -1,5 +1,5 @@
 package Array;
-import LitheCore.LitheException;
+import LitheXCore.LitheXException;
 import Array.EnvOptimizer.EnvEx2;
 import BasicRunner.Environment;
 
@@ -10,7 +10,7 @@ public class ArrayEnv implements Environment {
         values = new Object[size];
         outer = out;
     }
-    public Symbols symbols() { throw new LitheException("no symbols"); }
+    public Symbols symbols() { throw new LitheXException("no symbols"); }
     public Object get(int nest, int index) {
         if (nest == 0)
             return values[index];
@@ -23,7 +23,7 @@ public class ArrayEnv implements Environment {
         if (nest == 0)
             values[index] = value;
         else if (outer == null)
-            throw new LitheException("no outer environment");
+            throw new LitheXException("no outer environment");
         else
             ((EnvEx2)outer).put(nest - 1, index, value);
     }
@@ -33,6 +33,6 @@ public class ArrayEnv implements Environment {
     public Environment where(String name) { error(name); return null; }
     public void setOuter(Environment e) { outer = e; }
     private void error(String name) {
-        throw new LitheException("cannot access by name: " + name);
+        throw new LitheXException("cannot access by name: " + name);
     }
 }

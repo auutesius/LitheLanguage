@@ -1,5 +1,5 @@
 package StaticType;
-import LitheCore.LitheException;
+import LitheXCore.LitheXException;
 import javassist.CannotCompileException;
 import javassist.ClassPool;
 import javassist.CtClass;
@@ -20,7 +20,7 @@ public class JavaLoader {
             cc.addMethod(CtMethod.make(method, cc));
             return cc.toClass(loader, null);
         } catch (CannotCompileException e) {
-            throw new LitheException(e.getMessage());
+            throw new LitheXException(e.getMessage());
         }
     }
 }

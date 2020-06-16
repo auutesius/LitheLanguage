@@ -1,12 +1,12 @@
 package LVM;
 import static LVM.Opcode.*;
 import Native.NativeFunction;
-import LitheCore.LitheException;
-import LitheCore.ast.ASTree;
-import LitheCore.ast.ASTList;
+import LitheXCore.LitheXException;
+import LitheXCore.ast.ASTree;
+import LitheXCore.ast.ASTList;
 import java.util.ArrayList;
 
-public class LitheVM {
+public class LitheXVM {
     protected byte[] code;
     protected Object[] stack;
     protected String[] strings;
@@ -20,7 +20,7 @@ public class LitheVM {
     public final static int TRUE = 1;
     public final static int FALSE = 0;
 
-    public LitheVM(int codeSize, int stackSize, int stringsSize, HeapMemory hm) {
+    public LitheXVM(int codeSize, int stackSize, int stringsSize, HeapMemory hm) {
         code = new byte[codeSize];
         stack = new Object[stackSize];
         strings = new String[stringsSize];
@@ -92,13 +92,13 @@ public class LitheVM {
             if (v instanceof Integer)
                 registers[reg] = -((Integer)v).intValue();
             else
-                throw new LitheException("bad operand value");
+                throw new LitheXException("bad operand value");
             pc += 2;
             break;
         }
         default :
             if (code[pc] > LESS)
-                throw new LitheException("bad instruction");
+                throw new LitheXException("bad instruction");
             else
                 computeNumber();
             break;
@@ -148,7 +148,7 @@ public class LitheVM {
             pc += 3;
         }
         else
-            throw new LitheException("bad function call");
+            throw new LitheXException("bad function call");
     }
     protected void saveRegisters() {
         int size = decodeOffset(code[pc + 1]);
@@ -186,7 +186,7 @@ public class LitheVM {
         }
         else {
             if (!areNumbers)
-                throw new LitheException("bad operand value");
+                throw new LitheXException("bad operand value");
             int i1 = ((Integer)v1).intValue();
             int i2 = ((Integer)v2).intValue();
             int i3;
@@ -216,7 +216,7 @@ public class LitheVM {
                 i3 = i1 < i2 ? TRUE : FALSE;
                 break;
             default:
-                throw new LitheException("never reach here");
+                throw new LitheXException("never reach here");
             }
             registers[left] = i3;
         }

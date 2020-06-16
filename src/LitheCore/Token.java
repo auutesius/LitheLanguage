@@ -1,4 +1,4 @@
-package LitheCore;
+package LitheXCore;
 
 public abstract class Token {
     public static final Token EOF = new Token(-1){}; // end of file
@@ -12,6 +12,6 @@ public abstract class Token {
     public boolean isIdentifier() { return false; }
     public boolean isNumber() { return false; }
     public boolean isString() { return false; }
-    public int getNumber() { throw new LitheException("not number token"); }
+    public int getNumber() { throw new LitheXException("not number token"); }
     public String getText() { return ""; }
 }

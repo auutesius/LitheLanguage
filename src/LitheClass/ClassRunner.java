@@ -1,4 +1,4 @@
-package LitheClass;
+package LitheXClass;
 import javassist.gluonj.util.Loader;
 import Closure.ClosureEvaluator;
 import Native.NativeEvaluator;

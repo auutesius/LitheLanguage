@@ -1,7 +1,7 @@
-package LitheClass;
-import LitheCore.LitheException;
-import LitheCore.ast.ClassBody;
-import LitheCore.ast.ClassStmnt;
+package LitheXClass;
+import LitheXCore.LitheXException;
+import LitheXCore.ast.ClassBody;
+import LitheXCore.ast.ClassStmnt;
 import BasicRunner.Environment;
 
 public class ClassInfo {
@@ -17,7 +17,7 @@ public class ClassInfo {
         else if (obj instanceof ClassInfo)
             superClass = (ClassInfo)obj;
         else
-            throw new LitheException("unknown super class: " + cs.superClass(),
+            throw new LitheXException("unknown super class: " + cs.superClass(),
                                      cs);
     }
     public String name() { return definition.name(); }

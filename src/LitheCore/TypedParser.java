@@ -1,6 +1,6 @@
-package LitheCore;
-import static LitheCore.Parser.rule;
-import LitheCore.ast.*;
+package LitheXCore;
+import static LitheXCore.Parser.rule;
+import LitheXCore.ast.*;
 
 public class TypedParser extends FuncParser {
     Parser typeTag = rule(TypeTag.class).sep(":").identifier(reserved);

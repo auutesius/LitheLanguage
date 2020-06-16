@@ -1,4 +1,4 @@
-package LitheCore;
+package LitheXCore;
 import java.io.IOException;
 
 public class ParseException extends Exception {

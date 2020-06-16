@@ -2,9 +2,9 @@ package Array;
 import static javassist.gluonj.GluonJ.revise;
 import javassist.gluonj.*;
 import java.util.List;
-import LitheCore.Token;
-import LitheCore.LitheException;
-import LitheCore.ast.*;
+import LitheXCore.Token;
+import LitheXCore.LitheXException;
+import LitheXCore.ast.*;
 import Array.Symbols.Location;
 import BasicRunner.Environment;
 import BasicRunner.BasicEvaluator;
@@ -80,7 +80,7 @@ import Closure.ClosureEvaluator;
         public void lookup(Symbols syms) {
             Location loc = syms.get(name());
             if (loc == null)
-                throw new LitheException("undefined name: " + name(), this);
+                throw new LitheXException("undefined name: " + name(), this);
             else {
                 nest = loc.nest;
                 index = loc.index;

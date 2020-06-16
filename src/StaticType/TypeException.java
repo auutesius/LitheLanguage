@@ -1,5 +1,5 @@
 package StaticType;
-import LitheCore.ast.ASTree;
+import LitheXCore.ast.ASTree;
 
 public class TypeException extends Exception {
     public TypeException(String msg, ASTree t) {

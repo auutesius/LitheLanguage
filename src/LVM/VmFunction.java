@@ -1,6 +1,6 @@
 package LVM;
-import LitheCore.ast.BlockStmnt;
-import LitheCore.ast.ParameterList;
+import LitheXCore.ast.BlockStmnt;
+import LitheXCore.ast.ParameterList;
 import BasicRunner.Environment;
 import Closure.Function;
 

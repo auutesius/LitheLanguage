@@ -2,8 +2,8 @@ package Array;
 import javassist.gluonj.util.Loader;
 import Closure.ClosureEvaluator;
 import Native.NativeEvaluator;
-import LitheClass.ClassEvaluator;
-import LitheClass.ClassInterpreter;
+import LitheXClass.ClassEvaluator;
+import LitheXClass.ClassInterpreter;
 
 public class ArrayRunner {
     public static void main(String[] args) throws Throwable {

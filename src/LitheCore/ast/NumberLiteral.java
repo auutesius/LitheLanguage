@@ -1,5 +1,5 @@
-package LitheCore.ast;
-import LitheCore.Token;
+package LitheXCore.ast;
+import LitheXCore.Token;
 
 public class NumberLiteral extends ASTLeaf {
     public NumberLiteral(Token t) { super(t); }

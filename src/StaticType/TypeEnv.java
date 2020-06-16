@@ -1,6 +1,6 @@
 package StaticType;
 import java.util.Arrays;
-import LitheCore.LitheException;
+import LitheXCore.LitheXException;
 
 public class TypeEnv {
     protected TypeEnv outer;
@@ -30,7 +30,7 @@ public class TypeEnv {
             return oldValue;    // may be null
         }
         else if (outer == null)
-            throw new LitheException("no outer type environment");
+            throw new LitheXException("no outer type environment");
         else
             return outer.put(nest - 1, index, value);
     }

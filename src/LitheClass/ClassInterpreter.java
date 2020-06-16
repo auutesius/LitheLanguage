@@ -1,6 +1,6 @@
-package LitheClass;
-import LitheCore.ClassParser;
-import LitheCore.ParseException;
+package LitheXClass;
+import LitheXCore.ClassParser;
+import LitheXCore.ParseException;
 import BasicRunner.BasicInterpreter;
 import Closure.NestedEnv;
 import Native.Natives;

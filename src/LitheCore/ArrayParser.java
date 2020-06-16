@@ -1,7 +1,7 @@
-package LitheCore;
-import static LitheCore.Parser.rule;
+package LitheXCore;
+import static LitheXCore.Parser.rule;
 import javassist.gluonj.Reviser;
-import LitheCore.ast.*;
+import LitheXCore.ast.*;
 
 @Reviser public class ArrayParser extends FuncParser {
     Parser elements = rule(ArrayLiteral.class)

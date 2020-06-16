@@ -1,10 +1,10 @@
 package Optimization;
 
-public class OptLitheObject {
+public class OptLitheXObject {
     public static class AccessException extends Exception {}
     protected OptClassInfo classInfo;
     protected Object[] fields;
-    public OptLitheObject(OptClassInfo ci, int size) {
+    public OptLitheXObject(OptClassInfo ci, int size) {
         classInfo = ci;
         fields = new Object[size];
     }

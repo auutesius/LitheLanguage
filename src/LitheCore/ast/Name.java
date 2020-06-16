@@ -1,5 +1,5 @@
-package LitheCore.ast;
-import LitheCore.Token;
+package LitheXCore.ast;
+import LitheXCore.Token;
 
 public class Name extends ASTLeaf {
     public Name(Token t) { super(t); }

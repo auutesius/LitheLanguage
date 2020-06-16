@@ -1,7 +1,7 @@
 package StaticType;
 
-import LitheCore.ast.ASTree;
-import LitheCore.ast.TypeTag;
+import LitheXCore.ast.ASTree;
+import LitheXCore.ast.TypeTag;
 
 public class TypeInfo {
     public static final TypeInfo ANY = new TypeInfo() {

@@ -1,4 +1,4 @@
-package LitheCore;
+package LitheXCore;
 import java.io.IOException;
 import java.io.LineNumberReader;
 import java.io.Reader;

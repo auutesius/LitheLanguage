@@ -1,11 +1,11 @@
-package LitheClass;
+package LitheXClass;
 import BasicRunner.Environment;
 import Closure.FuncEvaluator.EnvEx;
 
-public class LitheObject {
+public class LitheXObject {
     public static class AccessException extends Exception {}
     protected Environment env;
-    public LitheObject(Environment e) { env = e; }
+    public LitheXObject(Environment e) { env = e; }
     @Override public String toString() { return "<object:" + hashCode() + ">"; }
     public Object read(String member) throws AccessException {
         return getEnv(member).get(member);

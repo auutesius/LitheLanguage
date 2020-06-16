@@ -1,7 +1,7 @@
 package LVM;
 import java.util.List;
-import LitheCore.LitheException;
-import LitheCore.Token;
+import LitheXCore.LitheXException;
+import LitheXCore.Token;
 import Array.EnvOptimizer;
 import BasicRunner.Environment;
 import BasicRunner.BasicEvaluator.ASTreeEx;
@@ -9,12 +9,12 @@ import Closure.FuncEvaluator;
 import javassist.gluonj.*;
 import static LVM.Opcode.*;
 import static javassist.gluonj.GluonJ.revise;
-import LitheCore.ast.*;
+import LitheXCore.ast.*;
 
 @Require(EnvOptimizer.class)
 @Reviser public class VmEvaluator {
     @Reviser public static interface EnvEx3 extends EnvOptimizer.EnvEx2 {
-        LitheVM stoneVM();
+        LitheXVM stoneVM();
         Code code();
     }
     @Reviser public static abstract class ASTreeVmEx extends ASTree {
@@ -41,7 +41,7 @@ import LitheCore.ast.*;
         }
         public void compile(Code c) {
             c.nextReg = 0;
-            c.frameSize = size + LitheVM.SAVE_AREA_SIZE;
+            c.frameSize = size + LitheXVM.SAVE_AREA_SIZE;
             c.add(SAVE);
             c.add(encodeOffset(size));
             ((ASTreeVmEx)revise(body())).compile(c);
@@ -56,7 +56,7 @@ import LitheCore.ast.*;
     @Reviser public static class ParamsEx2 extends EnvOptimizer.ParamsEx {
         public ParamsEx2(List<ASTree> c) { super(c); }
         @Override public void eval(Environment env, int index, Object value) {
-            LitheVM vm = ((EnvEx3)env).stoneVM();
+            LitheXVM vm = ((EnvEx3)env).stoneVM();
             vm.stack()[offsets[index]] = value;
         }
     }
@@ -130,7 +130,7 @@ import LitheCore.ast.*;
                     ((NameEx2)l).compileAssign(c);
                 }
                 else
-                    throw new LitheException("bad assignment", this);
+                    throw new LitheXException("bad assignment", this);
             }
             else {
                 ((ASTreeVmEx)left()).compile(c);
@@ -159,7 +159,7 @@ import LitheCore.ast.*;
             else if (op.equals("<"))
                 return LESS;
             else
-                throw new LitheException("bad operator", this);
+                throw new LitheXException("bad operator", this);
         }
     }
     @Reviser public static class PrimaryVmEx extends FuncEvaluator.PrimaryEx {
@@ -197,15 +197,15 @@ import LitheCore.ast.*;
         }
         public Object eval(Environment env, Object value) {
             if (!(value instanceof VmFunction))
-                throw new LitheException("bad function", this);
+                throw new LitheXException("bad function", this);
             VmFunction func = (VmFunction)value;
             ParameterList params = func.parameters();
             if (size() != params.size())
-                throw new LitheException("bad number of arguments", this);
+                throw new LitheXException("bad number of arguments", this);
             int num = 0;
             for (ASTree a: this)
                 ((ParamsEx2)params).eval(env, num++, ((ASTreeEx)a).eval(env)); 
-            LitheVM svm = ((EnvEx3)env).stoneVM();
+            LitheXVM svm = ((EnvEx3)env).stoneVM();
             svm.run(func.entry());
             return svm.stack()[0];
         }

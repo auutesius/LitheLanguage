@@ -1,6 +1,6 @@
 package Parser;
-import LitheCore.ast.ASTree;
-import LitheCore.*;
+import LitheXCore.ast.ASTree;
+import LitheXCore.*;
 
 public class ParserRunner {
     public static void main(String[] args) throws ParseException {

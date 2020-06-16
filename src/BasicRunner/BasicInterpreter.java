@@ -1,7 +1,7 @@
 package BasicRunner;
-import LitheCore.*;
-import LitheCore.ast.ASTree;
-import LitheCore.ast.NullStmnt;
+import LitheXCore.*;
+import LitheXCore.ast.ASTree;
+import LitheXCore.ast.NullStmnt;
 
 public class BasicInterpreter {
     public static void main(String[] args) throws ParseException {

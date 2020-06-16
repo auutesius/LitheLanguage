@@ -1,8 +1,8 @@
 package Optimization;
 import java.util.List;
-import LitheCore.LitheException;
-import LitheCore.ast.ASTree;
-import LitheCore.ast.Dot;
+import LitheXCore.LitheXException;
+import LitheXCore.ast.ASTree;
+import LitheXCore.ast.Dot;
 import BasicRunner.Environment;
 import javassist.gluonj.*;
 
@@ -14,8 +14,8 @@ import javassist.gluonj.*;
         protected int index;
         public DotEx2(List<ASTree> c) { super(c); }
         @Override public Object eval(Environment env, Object value) {
-            if (value instanceof OptLitheObject) {
-                OptLitheObject target = (OptLitheObject)value;
+            if (value instanceof OptLitheXObject) {
+                OptLitheXObject target = (OptLitheXObject)value;
                 if (target.classInfo() != classInfo)
                     updateCache(target);
                 if (isField)
@@ -26,7 +26,7 @@ import javassist.gluonj.*;
             else
                 return super.eval(env, value);
         }
-        protected void updateCache(OptLitheObject target) {
+        protected void updateCache(OptLitheXObject target) {
             String member = name();
             classInfo = target.classInfo();
             Integer i = classInfo.fieldIndex(member);
@@ -41,14 +41,14 @@ import javassist.gluonj.*;
                 index = i;
                 return;
             }
-            throw new LitheException("bad member access: " + member, this);
+            throw new LitheXException("bad member access: " + member, this);
         }
     }
     @Reviser public static class AssignEx2 extends ObjOptimizer.AssignEx {
         protected OptClassInfo classInfo = null;
         protected int index;
         public AssignEx2(List<ASTree> c) { super(c); }
-        @Override protected Object setField(OptLitheObject obj, Dot expr,
+        @Override protected Object setField(OptLitheXObject obj, Dot expr,
                                             Object rvalue)
         {
             if (obj.classInfo() != classInfo) {
@@ -56,7 +56,7 @@ import javassist.gluonj.*;
                 classInfo = obj.classInfo();
                 Integer i = classInfo.fieldIndex(member);
                 if (i == null)
-                    throw new LitheException("bad member access: " + member,
+                    throw new LitheXException("bad member access: " + member,
                                              this);       
                 index = i;
             }

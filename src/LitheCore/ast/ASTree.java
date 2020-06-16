@@ -1,4 +1,4 @@
-package LitheCore.ast;
+package LitheXCore.ast;
 import java.util.Iterator;
 
 public abstract class ASTree implements Iterable<ASTree> {

@@ -1,7 +1,7 @@
 package StaticType;
 import java.util.List;
 import javassist.gluonj.*;
-import LitheCore.ast.*;
+import LitheXCore.ast.*;
 import Array.EnvOptimizer;
 import Array.Symbols;
 import Array.EnvOptimizer.ASTreeOptEx;

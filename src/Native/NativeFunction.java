@@ -1,7 +1,7 @@
 package Native;
 import java.lang.reflect.Method;
-import LitheCore.LitheException;
-import LitheCore.ast.ASTree;
+import LitheXCore.LitheXException;
+import LitheXCore.ast.ASTree;
 
 public class NativeFunction {
     protected Method method;
@@ -18,7 +18,7 @@ public class NativeFunction {
         try {
             return method.invoke(null, args);
         } catch (Exception e) {
-            throw new LitheException("bad native function call: " + name, tree);
+            throw new LitheXException("bad native function call: " + name, tree);
         }
     }
 }
