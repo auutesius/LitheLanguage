@@ -1,24 +1,24 @@
 package LVM;
 
 public class Code {
-    protected LitheVM svm;
+    protected LitheVM lvm;
     protected int codeSize;
     protected int numOfStrings;
     protected int nextReg;
     protected int frameSize;
 
     public Code(LitheVM LitheVm) {
-        svm = LitheVm;
+        lvm = LitheVm;
         codeSize = 0;
         numOfStrings = 0;
     }
     public int position() { return codeSize; }
     public void set(short value, int pos) {
-        svm.code()[pos] = (byte)(value >>> 8);
-        svm.code()[pos + 1] = (byte)value;
+        lvm.code()[pos] = (byte)(value >>> 8);
+        lvm.code()[pos + 1] = (byte)value;
     }
     public void add(byte b) {
-        svm.code()[codeSize++] = b;
+        lvm.code()[codeSize++] = b;
     }
     public void add(short i) {
         add((byte)(i >>> 8));
@@ -31,7 +31,7 @@ public class Code {
         add((byte)i);
     }
     public int record(String s) {
-        svm.strings()[numOfStrings] = s;
+        lvm.strings()[numOfStrings] = s;
         return numOfStrings++;
     }
 }
